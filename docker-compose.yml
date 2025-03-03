@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app1
+      - app2
+
+  app1:
+    build: ./app
+    container_name: app1
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - postgres
+      - redis
+
+  app2:
+    build: ./app
+    container_name: app2
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
