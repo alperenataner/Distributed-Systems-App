@@ -24,3 +24,11 @@ Spring Boot: Backend API geliştirmek için kullanıldı.
 PostgreSQL: Veritabanı işlemleri için kullanıldı.
 Redis: Performans artırma amacıyla veri önbellekleme sağlandı.
 Bu proje ile dağıtık sistemlerin temel bileşenleri olan yük dengeleme, yüksek erişilebilirlik ve failover gibi önemli konuları pratik bir şekilde uygulamış olduk. Docker kullanarak tüm servisleri tek bir komutla çalıştırıp yönetebilmek büyük bir kolaylık sağladı. Ayrıca, Spring Boot ve Nginx arasındaki etkileşimi daha verimli hale getirerek gerçek dünyada karşılaşılabilecek sorunlara karşı sağlam bir altyapı oluşturduk.
+├── docker-compose.yml
+├── nginx.conf
+├── Dockerfile
+├── src/
+│   └── main/
+│       └── java/... (Spring Boot uygulaması)
+├── pom.xml
+└── README.md
