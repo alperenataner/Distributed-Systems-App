@@ -44,8 +44,6 @@ Bu projeyi çalıştırmak için aşağıdakiler kurulu olmalıdır
 
 `Docker Compose`
 
-  
-## Çıkarılan Dersler
 
   
 ## Özellikler
